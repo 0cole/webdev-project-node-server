@@ -1,0 +1,32 @@
+[
+	{
+		"_id": 1,
+		"toUid": 1,
+		"fromUid": 2,
+		"contents": "Hello, how are you?"
+	},
+	{
+		"_id": 2,
+		"toUid": 3,
+		"fromUid": 4,
+		"contents": "Hi, I'm doing well. How about you?"
+	},
+	{
+		"_id": 3,
+		"toUid": 1,
+		"fromUid": 5,
+		"contents": "Hey there! What's up?"
+	},
+	{
+		"_id": 4,
+		"toUid": 2,
+		"fromUid": 1,
+		"contents": "Not much, just working on some coding projects."
+	},
+	{
+		"_id": 5,
+		"toUid": 3,
+		"fromUid": 1,
+		"contents": "I'm good too. How's your day going?"
+	}
+]
