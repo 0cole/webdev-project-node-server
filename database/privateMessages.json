@@ -1,32 +1,50 @@
 [
 	{
 		"_id": 1,
+		"toUid": 2,
+		"fromUid": 1,
+		"input": "Hello, how are you?"
+	},
+	{
+		"_id": 101,
 		"toUid": 1,
 		"fromUid": 2,
-		"contents": "Hello, how are you?"
+		"input": "I am doing good"
 	},
 	{
 		"_id": 2,
 		"toUid": 3,
-		"fromUid": 4,
-		"contents": "Hi, I'm doing well. How about you?"
+		"fromUid": 1,
+		"input": "Hi, I'm doing well. How about you?"
+	},
+	{
+		"_id": 102,
+		"toUid": 1,
+		"fromUid": 3,
+		"input": "Hola"
 	},
 	{
 		"_id": 3,
+		"toUid": 4,
+		"fromUid": 1,
+		"input": "Hey there! What's up?"
+	},
+	{
+		"_id": 103,
 		"toUid": 1,
-		"fromUid": 5,
-		"contents": "Hey there! What's up?"
+		"fromUid": 4,
+		"input": "Hello, i am writing this on an airplane"
 	},
 	{
 		"_id": 4,
-		"toUid": 2,
+		"toUid": 5,
 		"fromUid": 1,
-		"contents": "Not much, just working on some coding projects."
+		"input": "Not much, just working on some coding projects."
 	},
 	{
-		"_id": 5,
-		"toUid": 3,
-		"fromUid": 1,
-		"contents": "I'm good too. How's your day going?"
+		"_id": 104,
+		"toUid": 1,
+		"fromUid": 5,
+		"input": "HELLO."
 	}
 ]

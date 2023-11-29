@@ -8,7 +8,7 @@ function GlobalRoutes(app) {
 	});
 	// Create message
 	app.post("/api/messages/global", (req, res) => {
-		const message = { ...req.body, _id: new Date().getTime().toString() };
+		const message = { ...req.body, _id: parseInt(new Date().getTime().toString()) };
 		db.messages.push(message);
 		res.send(message);
 	});
