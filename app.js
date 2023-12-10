@@ -4,6 +4,7 @@ import cors from "cors";
 import "dotenv/config";
 import GlobalRoutes from "./messages/global/globalRoutes.js";
 import PrivateRoutes from "./messages/private/privateRoutes.js";
+import MessageRoutes from "./messages/messageRoutes.js";
 import UserRoutes from "./users/userRoutes.js";
 import mongoose from "mongoose";
 
@@ -38,6 +39,7 @@ app.use(session(sessionOptions));
 app.use(express.json());
 GlobalRoutes(app);
 PrivateRoutes(app);
+MessageRoutes(app);
 UserRoutes(app);
 
 app.listen(process.env.PORT || 4000);
