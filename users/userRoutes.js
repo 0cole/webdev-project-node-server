@@ -16,6 +16,10 @@ function UserRoutes(app) {
 		const user = await dao.findUserById(req.params.userId);
 		res.json(user);
 	};
+	const findUserByUsername = async (req, res) => {
+		const user = await dao.findUserByUsername(req.params.username);
+		res.json(user);
+	};
 	const updateUser = async (req, res) => {
 		const { userId } = req.params;
 		const status = await dao.updateUser(userId, req.body);
@@ -33,11 +37,22 @@ function UserRoutes(app) {
 		res.json(currentUser);
 	};
 	const signin = async (req, res) => {
-		const { username, password } = req.body;
-		const currentUser = await dao.findUserByCredentials(username, password);
-		req.session["currentUser"] = currentUser;
-		res.json(currentUser);
+		try {
+			const { username, password } = req.body;
+			const currentUser = await dao.findUserByCredentials(username, password);
+
+			if (!currentUser) {
+				return res.status(401).json({ message: "Invalid credentials. Please check your username and password." });
+			}
+
+			req.session["currentUser"] = currentUser;
+			res.json(currentUser);
+		} catch (error) {
+			console.error(error);
+			res.status(500).json({ message: "Internal server error" });
+		}
 	};
+
 	const signout = (req, res) => {
 		req.session.destroy();
 		res.json(200);
@@ -50,6 +65,7 @@ function UserRoutes(app) {
 	app.post("/api/users", createUser);
 	app.get("/api/users", findAllUsers);
 	app.get("/api/users/:userId", findUserById);
+	app.get("/api/users/username/:username", findUserByUsername);
 	app.put("/api/users/:userId", updateUser);
 	app.delete("/api/users/:userId", deleteUser);
 	app.post("/api/users/signup", signup);
