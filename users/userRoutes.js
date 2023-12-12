@@ -46,6 +46,20 @@ function UserRoutes(app) {
 		res.json(req.session["currentUser"]);
 	};
 
+	const changeEmail = async (req, res) => {
+		const { email } = req.body; // Extract email from the request body
+		const { userId } = req.params;
+
+		console.log("userID ",userId,req.params);
+		const status = await dao.changeEmail(userId, email);
+		console.log("status", status);
+		const currentUser = await dao.findUserById(userId);
+		req.session["currentUser"] = currentUser;
+		res.json(status);
+		
+	  };
+
+
 	app.post("/api/users/account", account);
 	app.post("/api/users", createUser);
 	app.get("/api/users", findAllUsers);
@@ -56,5 +70,6 @@ function UserRoutes(app) {
 	app.post("/api/users/signin", signin);
 	app.post("/api/users/signout", signout);
 	app.post("/api/users/account", account);
+	app.post("/api/users/changeEmail/:userId", changeEmail);
 }
 export default UserRoutes;

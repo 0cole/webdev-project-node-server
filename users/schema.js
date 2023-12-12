@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema(
 		email: String,
 		lastName: String,
 		dob: Date,
+		accountCreationDate: { type: Date, default: Date.now },
 		role: {
 			type: String,
 			enum: ["ADMIN", "USER"],
