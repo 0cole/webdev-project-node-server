@@ -6,7 +6,9 @@ import GlobalRoutes from "./messages/global/globalRoutes.js";
 import PrivateRoutes from "./messages/private/privateRoutes.js";
 import MessageRoutes from "./messages/messageRoutes.js";
 import UserRoutes from "./users/userRoutes.js";
+import LikesRoutes from "./likes/routes.js";
 import mongoose from "mongoose";
+
 
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/project";
 mongoose.connect(
@@ -41,5 +43,7 @@ GlobalRoutes(app);
 PrivateRoutes(app);
 MessageRoutes(app);
 UserRoutes(app);
+LikesRoutes(app);
+
 
 app.listen(process.env.PORT || 4000);
