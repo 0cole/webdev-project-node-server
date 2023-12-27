@@ -26,6 +26,7 @@ function LikesRoutes(app) {
   app.post("/api/users/:userId/likes/:albumId", createUserLikesAlbum);
   app.get("/api/users/:userId/likes", findAlbumsUserLikes);
   app.get("/api/albums/:albumId/likes", findUsersWhoLikeAlbum);
+
 }
 
 export default LikesRoutes;

@@ -8,6 +8,7 @@ import MessageRoutes from "./messages/messageRoutes.js";
 import UserRoutes from "./users/userRoutes.js";
 import LikesRoutes from "./likes/routes.js";
 import mongoose from "mongoose";
+import FollowsRoutes from "./follows/routes.js";
 
 
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/project";
@@ -44,6 +45,7 @@ PrivateRoutes(app);
 MessageRoutes(app);
 UserRoutes(app);
 LikesRoutes(app);
+FollowsRoutes(app);
 
 
 app.listen(process.env.PORT || 4000);

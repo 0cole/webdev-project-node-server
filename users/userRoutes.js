@@ -65,9 +65,7 @@ function UserRoutes(app) {
 		const { email } = req.body; // Extract email from the request body
 		const { userId } = req.params;
 
-		console.log("userID ",userId,req.params);
 		const status = await dao.changeEmail(userId, email);
-		console.log("status", status);
 		const currentUser = await dao.findUserById(userId);
 		req.session["currentUser"] = currentUser;
 		res.json(status);
