@@ -20,6 +20,10 @@ function UserRoutes(app) {
 		const user = await dao.findUserByUsername(req.params.username);
 		res.json(user);
 	};
+	const findUserByFavoriteArtist = async (req, res) => {
+		const user = await dao.findUserByFavoriteArtist(req.params.favoriteArtist);
+		res.json(user);
+	};
 	const updateUser = async (req, res) => {
 		const { userId } = req.params;
 		const status = await dao.updateUser(userId, req.body);
@@ -75,6 +79,7 @@ function UserRoutes(app) {
 
 	app.post("/api/users/account", account);
 	app.post("/api/users", createUser);
+	app.get("/api/users/:favoriteArtist", findUserByFavoriteArtist);
 	app.get("/api/users", findAllUsers);
 	app.get("/api/users/:userId", findUserById);
 	app.get("/api/users/username/:username", findUserByUsername);

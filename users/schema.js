@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema(
 		lastName: String,
 		dob: Date,
 		accountCreationDate: { type: Date, default: Date.now },
+		favoriteArtist: String,
 		role: {
 			type: String,
 			enum: ["ADMIN", "USER"],
